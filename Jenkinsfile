@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'dotnet build -r Release ./src/NopCommerce.sln'
+        sh 'dotnet build -c Release ./src/NopCommerce.sln'
       }
     }
 
