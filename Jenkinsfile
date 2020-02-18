@@ -5,7 +5,8 @@ pipeline {
       steps {
         sh 'dotnet restore ./src/NopCommerce.sln'
         sh 'dotnet clean -c Release ./src/NopCommerce.sln'
-        sh 'dotnet build -c Release ./src/NopCommerce.sln'
+        dir(path: 'src/Presentation/Nop.Web')
+        sh 'dotnet build Nop.Web.csproj -c Release'
       }
     }
 
