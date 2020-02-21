@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage('Prepare') {
       steps {
-        sh 'dotnet restore ./src/Build/src/ClearPluginAssemblies.sln -c Release'
+        sh 'dotnet restore ./src/Build/src/ClearPluginAssemblies.sln'
+        sh 'dotnet build ./src/Build/src/ClearPluginAssemblies.sln -c Release'
+        sh 'dotnet publish ./src/Build/src/ClearPluginAssemblies.sln -c Release'
         sh 'cp -v ./src/ClearPluginAssemblies/bin/Release/netcoreapp2.2/publish/ClearPluginAssemblies.dll  ./src/Build/ClearPluginAssemblies.dll'
       }
     }
